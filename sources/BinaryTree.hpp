@@ -7,7 +7,6 @@
 #include "PreOrderIterator.hpp"
 #include "PostOrderIterator.hpp"
 
-// using std::string, std::to_string, std::cout;
 
 namespace ariel
 {
@@ -17,7 +16,6 @@ namespace ariel
         
         private:
             Node<T>* root;
-            // Node<T> *temp = new Node<T>;
 
         public:
             
@@ -31,19 +29,17 @@ namespace ariel
                 delete root;
                 
                 // deleteTree(root);
-                // if(temp != nullptr) delete temp;
             }
 
-            void deleteTree(Node<T> *leaf)
-            {
-                if(leaf)
-                {
-                    deleteTree(leaf->left);
-                    deleteTree(leaf->right);
-                    delete leaf;
-                }
-                // if(temp) {delete temp;}
-            }
+            // void deleteTree(Node<T> *leaf)
+            // {
+            //     if(leaf)
+            //     {
+            //         deleteTree(leaf->left);
+            //         deleteTree(leaf->right);
+            //         delete leaf;
+            //     }
+            // }
             
 
             /// adding nodes functions ///
@@ -80,22 +76,16 @@ namespace ariel
 
                 if (temp == nullptr)
                 {
-                    // delete temp;
                     throw "First Element Does Not Exist In The Binary Tree";
                 }
 
                 if (temp->left)
                 {
                     temp->left->val = son;
-                    // delete temp; // ?
                     return *this;
                 }
                 
-                //Node<T>* f = temp;  
-                // Node<T>* s = new Node<T>(son);
                 temp->left = new Node<T>(son);
-                
-                // delete temp; //  ???
 
                 return *this;
             }
@@ -119,7 +109,6 @@ namespace ariel
 
                 if (temp == nullptr)
                 {
-                    // delete temp;
                     throw "First Element Does Not Exist In The Binary Tree";
                 }
 
@@ -129,10 +118,7 @@ namespace ariel
                     return *this;
                 }
                 
-                // Node<T>* f = temp;  
-                // Node<T>* s = new Node<T>(son);
                 temp->right = new Node<T>(son);
-                //delete temp; ???
 
                 return *this;
             }
@@ -150,7 +136,7 @@ namespace ariel
                 return *this;
             }
 
-            /// Move constructor and operator=: ///
+            /// Move constructor and operator ///
             BinaryTree(BinaryTree&& other) noexcept
             {
                 root = other.root;
@@ -165,7 +151,8 @@ namespace ariel
             }
 
 
-            /// iterating functions ///
+            /// Iterating functions ///
+            
             InOrderIterator<T> begin()
             {
                 return begin_inorder();

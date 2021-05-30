@@ -37,7 +37,7 @@ namespace ariel
                     {
                         nodes.push(stk_iter);
                         stk_iter = stk_iter->left;
-                    }   // stk_iter is now nullptr
+                    }  
 
                     stk_iter = nodes.top();
                     nodes.pop();
@@ -53,29 +53,18 @@ namespace ariel
                 return *this;
             }
 
-            // assigning operator
-            // InOrderIterator& operator=(InOrderIterator *other) 
-            // {
-            //     if (pointer_to_current_node != nullptr) delete pointer_to_current_node;
-            //     pointer_to_current_node = other->pointer_to_current_node;
-            //     stk_iter = other->stk_iter;
-            //     nodes = other->nodes;
-            //     return *this;
-            // }
             
             const InOrderIterator operator++(int) {
-                // check that performs deep copy
 
                 InOrderIterator tmp = *this;
-                // ++pointer_to_current_node;
 
-                 if (stk_iter != nullptr || !nodes.empty()) {
+                if (stk_iter != nullptr || !nodes.empty()) {
 
                     while (stk_iter != nullptr) 
                     {
                         nodes.push(stk_iter);
                         stk_iter = stk_iter->left;
-                    }   // stk_iter is now nullptr
+                    }   
 
                     stk_iter = nodes.top();
                     nodes.pop();
@@ -88,7 +77,6 @@ namespace ariel
                     pointer_to_current_node = nullptr;
                 }
 
-    
                 return tmp;
             }
 

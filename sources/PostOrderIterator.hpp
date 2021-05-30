@@ -12,7 +12,6 @@ namespace ariel
         private:
             Node<T>* pointer_to_current_node;
             std::stack<Node<T>*> nodes1, nodes2;
-            
 
         public:
             PostOrderIterator(Node<T>* ptr = nullptr) : pointer_to_current_node(ptr) 
@@ -61,20 +60,10 @@ namespace ariel
 
                 return *this;
             }
-
-            // assigning operator
-            // PostOrderIterator& operator=(PostOrderIterator *other) 
-            // {
-            //     if (pointer_to_current_node != nullptr) delete pointer_to_current_node;
-            //     pointer_to_current_node = other->pointer_to_current_node;
-            //     return *this;
-            // }
             
             const PostOrderIterator operator++(int) {
-                // check that performs deep copy
 
                 PostOrderIterator tmp = *this;
-                // ++pointer_to_current_node;
 
                 if ((nodes1.empty()))
                     pointer_to_current_node = nullptr;
@@ -100,7 +89,7 @@ namespace ariel
                         nodes2.pop();
                     }
                 }
-                
+
                 return tmp;
             }
 
@@ -112,9 +101,5 @@ namespace ariel
                 return pointer_to_current_node != other.pointer_to_current_node;
             }
 
-            Node<T>* get_ptr() const
-            {
-                return pointer_to_current_node;
-            }
     };
 }

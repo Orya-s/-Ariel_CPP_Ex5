@@ -54,20 +54,10 @@ namespace ariel
 
                 return *this;
             }
-
-            // assigning operator
-            // PreOrderIterator& operator=(PreOrderIterator *other) 
-            // {
-            //     if (pointer_to_current_node != nullptr) delete pointer_to_current_node;
-            //     pointer_to_current_node = other->pointer_to_current_node;
-            //     return *this;
-            // }
             
             const PreOrderIterator operator++(int) {
-                // check that performs deep copy
 
                 PreOrderIterator tmp = *this;
-                // ++pointer_to_current_node;
 
                 if (!nodes.empty()) 
                 {
@@ -87,7 +77,7 @@ namespace ariel
                 {
                     pointer_to_current_node = nullptr;
                 }
-                
+
                 return tmp;
             }
 
@@ -99,9 +89,5 @@ namespace ariel
                 return pointer_to_current_node != other.pointer_to_current_node;
             }
 
-            Node<T>* get_ptr() const
-            {
-                return pointer_to_current_node;
-            }
     };
 }

@@ -11,8 +11,7 @@ namespace ariel
         Node() {}
         Node(const T& v) : val(v) {left = right = nullptr;}
         Node(const Node &other) : val(other.val)
-        {
-                
+        {   
             if (other.right)
             {
                 right = new Node(*other.right);
