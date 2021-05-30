@@ -27,22 +27,10 @@ namespace ariel
             ~BinaryTree() 
             {
                 delete root;
-                
-                // deleteTree(root);
             }
-
-            // void deleteTree(Node<T> *leaf)
-            // {
-            //     if(leaf)
-            //     {
-            //         deleteTree(leaf->left);
-            //         deleteTree(leaf->right);
-            //         delete leaf;
-            //     }
-            // }
             
 
-            /// adding nodes functions ///
+            /// Adding nodes functions ///
 
             BinaryTree& add_root(T val)
             {
@@ -152,7 +140,7 @@ namespace ariel
 
 
             /// Iterating functions ///
-            
+
             InOrderIterator<T> begin()
             {
                 return begin_inorder();
@@ -191,19 +179,34 @@ namespace ariel
 
            
 
-            friend std::ostream& operator << (std::ostream& os, const BinaryTree<T>& bt)
+            static void printBT(std::ostream& out, const std::string& prefix, const Node<T>* node, bool isLeft)
             {
-                return os;
+                if( node != nullptr )
+                {
+                    out << prefix;
+
+                    if (isLeft)
+                    {
+                        out << "├──";
+                    }
+                    else
+                    {
+                        out << "└──";
+                    }
+                    
+                    out << node->val << std::endl;
+
+                    // enter the next tree level - left and right branch
+                    printBT(out, prefix + (isLeft ? "│   " : "    "), node->left, true);
+                    printBT(out, prefix + (isLeft ? "│   " : "    "), node->right, false);
+                }
             }
 
-            // friend std::ostream& operator<<(std::ostream& out, const BinaryTree& tree) {
-            //     out << tree.root->val;
-            //     if (tree.root->left)
-            //         out << "(" << (*tree.root->left)  << ")";
-            //     if (tree.root->right)
-            //         out << "[" << (*tree.root->right)  << "]";
-            //     return out;
-            // }
+            friend std::ostream& operator<<(std::ostream& out, const BinaryTree& tree) {
+
+                printBT(out, "", tree.root, false);
+                return out;
+            }
 
     };    
 } 
