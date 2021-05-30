@@ -36,10 +36,5 @@ namespace ariel
             delete left;
             delete right;
         }
-
-        // friend std::ostream& operator<<(std::ostream& out, const Node& n)
-        // {
-        //     return out << n.val; 
-        // }
     };
 }

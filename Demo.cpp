@@ -25,8 +25,8 @@ int main()
     tree_of_ints.add_right(9, 17);
     tree_of_ints.add_left(5, 10);
     tree_of_ints.add_right(5, 11);
-    tree_of_ints.add_left(6, 12);   ///////
-    tree_of_ints.add_right(6, 13);   ////////
+    tree_of_ints.add_left(6, 12);   
+    tree_of_ints.add_right(6, 13);   
     tree_of_ints.add_left(7, 14);
     tree_of_ints.add_right(7, 15);
  
